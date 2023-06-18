@@ -1,0 +1,57 @@
+/**************************************************************
+*********************** CONTACT *******************************
+**************************************************************/
+.contact-form {
+  padding: 0.5em;
+}
+h1 {
+  text-align: center;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+form input,
+form label {
+  margin: 0.5em;
+}
+form input {
+  width: 40%;
+}
+.message {
+  display: flex;
+}
+.message textarea {
+  width: 80%;
+}
+.button {
+  width: 150px;
+  margin: auto;
+  margin-top: 2em;
+}
+
+/**************************************************************
+*********************** INSCRIPTION ***************************
+**************************************************************/
+.form-register {
+  padding: 2em;
+}
+/**************************************************************
+*********************** CONNEXION ***************************
+**************************************************************/
+.form-login {
+  padding: 2em;
+}
+form {
+  margin: 2em;
+}
+form input,
+form label {
+  margin: 2em;
+}
+.button {
+  margin: 2em;
+  width: 150px;
+}
