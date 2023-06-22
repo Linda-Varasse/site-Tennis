@@ -1,0 +1,15 @@
+<div class="container-product-description">
+
+    <section>
+        <article>
+            <img src="<?= $product['image_url'] ?>" alt="">
+        </article>
+        <div class="article-info">
+            <h2><?= $product['nom'] ?></h2>
+            <p><?= number_format($product['prix'], 2, ',', ' ') ?>€</p>
+            <p><?= $product['description'] ?></p>
+            <label for="quantity">Quantité : </label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10">
+            <button>Ajouter au panier</button>
+        </div>
+    </section>

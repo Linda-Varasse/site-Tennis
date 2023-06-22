@@ -1,0 +1,27 @@
+<div class="container-account">
+    <h2>Mon compte</h2>
+
+    <table class="table-infos">
+        <tr>
+            <td>Email : </td>
+            <td><?= $_SESSION['user']['email'] ?></td>
+        </tr>
+        <tr>
+            <td>Pseudo : </td>
+            <td><?= $_SESSION['user']['pseudo'] ?></td>
+        </tr>
+        <tr>
+            <td>Date de création du compte : </td>
+            <td><?= date_create($_SESSION['user']['created'])->format('d - m - Y') ?></td>
+        </tr>
+    </table>
+    <h3>Changer mon mot de passe</h3>
+    <form action='/account' method='post'>
+        <input type="hidden" name='token' value="<?= $_SESSION['user']['token'] ?>">
+        <div>
+            <label for="password">Nouveau mot de passe</label>
+            <input type="password" name='pwd' id="password" aria-describedby="passwordHelp">
+        </div>
+        <button>Envoyer</button>
+    </form>
+</div>
