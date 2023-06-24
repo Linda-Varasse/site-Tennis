@@ -1,0 +1,62 @@
+<div class="container-products">
+    <nav class="menu-choice">
+        <div><label for="order">Trier par:</label>
+            <select name="order" id="order" onchange="sortProducts()">
+                <option value="">--Choisissez une option--</option>
+                <option value="price-ascendent">Du moins cher au plus cher</option>
+                <option value="price-descendent">Du plus cher au moins cher</option>
+            </select>
+        </div>
+
+        <div class="menu-checkbox">
+            <div class="checkbox-racket-tennis checkbox">
+                <input type="radio" id="all" name="option" value="all" onclick="filterProducts()">
+                <label for="all">Tous les produits</label>
+            </div>
+            <div class="checkbox-racket-tennis checkbox">
+                <input type="radio" id="racket" name="option" onclick="filterProducts()">
+                <label for="racket">Raquettes</label>
+            </div>
+            <div class="checkbox-shoes-men checkbox">
+                <input type="radio" id="shoes-men" name="option" onclick="filterProducts()">
+                <label for="shoes-men">Chaussures Hommes</label>
+            </div>
+            <div class="checkbox-shoes-women checkbox">
+                <input type="radio" id="shoes-women" name="option" onclick="filterProducts()">
+                <label for="shoes-women">Chaussures Femmes</label>
+            </div>
+            <div class="checkbox-clothes checkbox">
+                <input type="radio" id="clothes" name="option" onclick="filterProducts()">
+                <label for="clothes">Vêtements </label>
+            </div>
+        </div>
+    </nav>
+    <section id="product-section">
+        <?php foreach ($products as $product) : ?>
+            <article class="all-article" data-category="<?= $product['categorie'] ?>">
+                <div class="card-article all product" data-price="<?= $product['prix'] ?>">
+                    <div class="img-article">
+                        <img src="<?= $product['image_url'] ?>" alt="<?= $product['description'] ?>">
+                    </div>
+                    <div class="card-article-bottom">
+                        <div class="card-article-price">
+                            <p><?= $product['nom'] ?></p>
+                            <p><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
+                        </div>
+                        <button class="addtocart">
+                            <div class="pretext">
+                                <i class="fas fa-cart-plus"></i> Ajouter au panier
+                            </div>
+                            <div class="pretext done">
+                                <div class="posttext"><i class="fas fa-check"></i> Ajouté !</div>
+                            </div>
+                        </button>
+                        <a class="button-see-more" data-id="<?= $product['id'] ?>" href="/productDescription/<?= $product['id'] ?>">
+                            Voir plus
+                        </a>
+                    </div>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </section>
+</div>

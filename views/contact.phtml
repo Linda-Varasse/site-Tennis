@@ -1,0 +1,33 @@
+<div class="contact-form">
+    <h2>Formulaire de contact</h2>
+
+    <form action='' method='post' onsubmit="return formValidatorContact()">
+        <?php if (isset($_SESSION['user'])) : ?>
+            <div>
+                <label for="pseudo">Pseudo </label>
+                <input type="text" name='pseudo' value="<?= $_SESSION['user']['pseudo'] ?>" readonly>
+            </div>
+            <div> <label for="mail">Email</label>
+                <input id="mail" type="email" name="mail" value="<?= $_SESSION['user']['email'] ?>" readonly>
+            </div>
+        <?php else : ?>
+            <div>
+                <label for="pseudo">Pseudo </label>
+                <input type="text" name='pseudo' placeholder="Votre pseudo">
+            </div>
+            <div> <label for="mail">Email</label>
+                <input id="mail" type="email" name="mail" placeholder="Votre email">
+            </div>
+        <?php endif; ?>
+
+        <div> <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+        </div>
+
+        <div class="message">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message" style="height:200px"></textarea>
+        </div>
+        <input class="button" type="submit" value="Envoyer">
+    </form>
+</div>

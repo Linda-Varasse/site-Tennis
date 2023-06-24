@@ -1,0 +1,15 @@
+<div class="form-login">
+    <h2>Connexion</h2>
+
+    <form action='/login' method='post' onsubmit="return formValidatorLogin()">
+        <div>
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name='mail' class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div>
+            <label for="password" class="form-label">Mot de passe:</label>
+            <input type="password" name='pwd' class="form-control" id="password" required>
+        </div>
+        <input class="button" type="submit" value="Envoyer">
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="form-register">
+    <h2>Inscription</h2>
+
+    <form action='' method='post' onsubmit="return formValidateRegister()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name='mail' class="form-control" id="mail" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="pseudo" class="form-label">Pseudo</label>
+            <input type="text" name='pseudo' class="form-control" id="pseudo">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+            <input type="password" name='pwd' class="form-control" id="password" required>
+        </div>
+        <input class="button" type="submit" value="Envoyer">
+    </form>
+</div>
