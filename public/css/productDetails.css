@@ -1,0 +1,58 @@
+.product-first-section,
+.product-second-section {
+  width: 90%;
+  margin: auto;
+}
+.article-image {
+  width: 50%;
+  margin: 2em 0;
+}
+.article-image img {
+  width: 70%;
+  margin: 4em 0;
+}
+.article-info {
+  width: 100%;
+  padding: 0 4em;
+}
+.article-info p {
+  margin: 1em 0;
+}
+.title-opinion {
+  justify-content: space-between;
+}
+.product-price {
+  font-size: 2em;
+}
+.opinion {
+  display: flex;
+}
+.dflex {
+  display: flex;
+  align-items: center;
+}
+.quantity-product input {
+  border: 0;
+  border-bottom: 4px solid rgb(213, 121, 22);
+  text-align: center;
+}
+.custom-select {
+  margin: 1em 0;
+}
+.custom-select select {
+  border: 0;
+  border-bottom: 4px solid rgb(213, 121, 22);
+}
+button {
+  font-size: 1em;
+  border: 0;
+  border-radius: 3em;
+  background-color: rgb(213, 121, 22);
+  color: #fff;
+  padding: 0.5em 1em;
+  transition: transform 0.4s;
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.1);
+}

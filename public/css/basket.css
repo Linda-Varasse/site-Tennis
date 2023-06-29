@@ -1,0 +1,17 @@
+table {
+  width: 90%;
+  border-collapse: collapse;
+  text-align: center;
+}
+table td,
+table th,
+table tfoot td {
+  border: 1px solid black;
+  padding: 0.5em 1em;
+}
+.delete img {
+  width: 50px;
+}
+table thead {
+  background-color: rgba(213, 121, 22, 0.3);
+}

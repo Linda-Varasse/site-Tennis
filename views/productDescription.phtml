@@ -1,0 +1,78 @@
+<div class="container-product-description">
+
+    <section class="product-first-section">
+        <article class="article-image">
+            <img src="<?= $product['image_url'] ?>" alt="">
+        </article>
+        <article>
+            <div class="article-info">
+                <div class="dflex title-opinion">
+                    <h2><?= $product['nom'] ?></h2>
+                    <div class="opinion">
+                        <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
+                        <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
+                        <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
+                        <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
+                        <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
+                    </div>
+                </div>
+                <p><?= $product['description'] ?></p>
+                <p class="product-price"><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
+                <p id="stock">Stock disponible: <?= $product['quantité'] ?> </p>
+                <?php
+                if ($product['quantité'] > 0 && $product['quantité']  <= 3) {
+                    echo "<p > <i class='fa-solid fa-triangle-exclamation' style='color: #d57916;'></i>Les stocks sont bientôt épuisés !</p>";
+                } elseif ($product['quantité'] == 0) {
+                    echo "<p><i class='fa-solid fa-triangle-exclamation' style='color: #ff0000;'></i>Les stocks sont épuisés !</p>";
+                }
+                ?>
+                <?php
+                if ($product['quantité'] > 0) : ?>
+                    <div class="dflex quantity-product">
+                        <label for="quantity">Quantité : </label>
+                        <input type="number" id="quantity" value="1" name="quantity" min="1" max="<?= $product['quantité'] ?>">
+                    </div>
+                <?php endif; ?>
+                <div class="custom-select">
+                    <?php if ($product['categorie'] === "vetement") : ?>
+                        <label for="size">Taille : </label>
+                        <select name="taille" id="size">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    <?php elseif ($product['categorie'] === "chaussures-femmes" || $product['categorie'] === "chaussures-hommes") : ?>
+                        <label for="size">Taille : </label>
+                        <select name="taille" id="size">
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                        </select>
+                    <?php endif; ?>
+                </div>
+                <div class="shipping">
+                    <div class="shipping-modality dflex">
+                        <i class="fa-solid fa-truck" style="color: #d57916;"></i>
+                        <p>Livraison en 5 jours ouvrés</p>
+                    </div>
+                    <div class="shipping-modality-express dflex">
+                        <i class="fa-solid fa-truck-fast" style="color: #d57916;"></i>
+                        <p>Livraison Express en 2 jours ouvrés</p>
+                    </div>
+                </div>
+                <button>Ajouter au panier</button>
+            </div>
+        </article>
+    </section>
+    <section class="product-second-section">
+        <article class="other-infos">
+            <h3>Avis des utilisateurs</h3>
+            <h3>Caractéristiques techniques</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto provident, itaque, libero numquam tempora animi ipsa, tenetur doloribus nemo asperiores corrupti! Nam porro provident error illum sapiente perferendis ad molestiae. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa ullam nostrum debitis adipisci vitae. Nisi ducimus placeat, nesciunt minus eius commodi harum eos similique corrupti illo obcaecati ratione molestiae inventore!</p>
+            <h3>Commentaires</h3>
+        </article>
+    </section>
