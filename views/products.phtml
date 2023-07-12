@@ -43,17 +43,18 @@
                             <p><?= $product['nom'] ?></p>
                             <p><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
                         </div>
-                        <button class="addtocart">
-                            <div class="pretext">
+                        <a href="/addBasket/<?= $product['id'] ?>" class=" addtocart addCart" data-product-id="<?= $product['id'] ?>">
+                            <div class=" pretext">
                                 <i class="fas fa-cart-plus"></i> Ajouter au panier
                             </div>
                             <div class="pretext done">
                                 <div class="posttext"><i class="fas fa-check"></i> Ajouté !</div>
                             </div>
-                        </button>
+                        </a>
                         <a class="button-see-more" data-id="<?= $product['id'] ?>" href="/productDescription/<?= $product['id'] ?>">
                             Voir plus
                         </a>
+
                     </div>
                 </div>
             </article>

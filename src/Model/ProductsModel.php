@@ -28,4 +28,18 @@ class ProductsModel extends DatabaseConnector
 
         return $product;
     }
+    public function getProductsBasket()
+    {
+        $ids = array_keys($_SESSION['panier']);
+
+        if (empty($ids)) {
+            return array(); // Panier vide, renvoie un tableau vide
+        }
+        $idsString = implode(',', $ids);
+
+        $stmt = $this->getConnection()->prepare("SELECT * FROM products WHERE id IN ($idsString)");
+        $stmt->execute();
+        $products = $stmt->fetchAll();
+        return $products;
+    }
 }

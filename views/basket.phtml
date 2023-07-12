@@ -1,0 +1,65 @@
+<div class="basket-container">
+    <h2>Panier</h2>
+    <div class="basket-products">
+        <?php if (empty($_SESSION['panier'])) : ?>
+            <p>Votre panier est vide.</p>
+        <?php else : ?>
+            <table>
+                <thead>
+                    <td>Image du produit</td>
+                    <td>Nom</td>
+                    <td>Prix à l'unité</td>
+                    <td>Quantité</td>
+                    <td>Prix Total</td>
+                    <td>Supprimer le produit</td>
+                </thead>
+
+                <?php
+                $total = 0;
+                foreach ($products as $product) :
+                    $total = $total + $product['prix'] * $_SESSION['panier'][$product['id']];
+                ?>
+                    <tr>
+                        <td><img src="<?= $product['image_url'] ?>" alt="<?= $product['description'] ?>"></td>
+                        <td>
+                            <p><?= $product['nom'] ?></p>
+                        </td>
+                        <td>
+                            <p><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
+                        </td>
+                        <td><?= $_SESSION['panier'][$product['id']] ?></td>
+                        <td><?= number_format($product['prix'] * $_SESSION['panier'][$product['id']], 2, ',', ' ') ?> €</td>
+                        <td>
+                            <a href="/delete/<?= $product['id'] ?>"><img class="delete" src="../img/delete.png" alt=""></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+        <div class="basket-order">
+            <div class="basket-payment">
+                <div class="basket-total">
+                    <h3>Total</h3>
+                    <div>
+                        <p>Livraison : </p>
+                        <p>Sous 2 jours ouvrés : 9€ </p>
+                        <p>Sous 5 jours ouvrés : 4€</p>
+                    </div>
+                    <div class="display">
+                        <?php if (empty($_SESSION['panier'])) : ?>
+                            <p>
+                                Total : 0,00€
+                            </p>
+                        <?php else : ?>
+                            <h4>Total : </h4>
+                            <h4><?= number_format($total, 2, ',', ' ') ?> €</h4>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="basket-validation">
+                <input class="button-validation" type="submit" value="Valider la commande">
+            </div>
+        </div>
+    </div>
+</div>
