@@ -17,7 +17,10 @@ class Router
         '/logout'                    => UserController::class . '@logout',
         '/products'                  => ProductsController::class . '@products',
         '/account'                   => UserController::class . '@account',
-        '/productDescription/:id'    => ProductsController::class . '@productsDescription'
+        '/productDescription/:id'    => ProductsController::class . '@productsDescription',
+        '/basket'                    => ProductsController::class . '@basket',
+        '/addBasket/:id'             => ProductsController::class . '@addBasket',
+        '/delete/:id'                => ProductsController::class . '@deleteProduct'
     ];
 
     public static function handleRequest()
@@ -31,6 +34,18 @@ class Router
         if (preg_match('/\/productDescription\/(\d+)/', $uri, $matches)) {
             $id = $matches[1];
             $route = str_replace(':id', $id, self::ROUTES['/productDescription/:id']);
+            list($controller, $method) = explode('@', $route);
+            self::executeControllerMethod($controller, $method, $id);
+        }
+        // if (preg_match('/\/addBasket\/(\d+)/', $uri, $matches)) {
+        //     $id = $matches[1];
+        //     $route = str_replace(':id', $id, self::ROUTES['/addBasket/:id']);
+        //     list($controller, $method) = explode('@', $route);
+        //     self::executeControllerMethod($controller, $method, $id);
+        // }
+        if (preg_match('/\/delete\/(\d+)/', $uri, $matches)) {
+            $id = $matches[1];
+            $route = str_replace(':id', $id, self::ROUTES['/delete/:id']);
             list($controller, $method) = explode('@', $route);
             self::executeControllerMethod($controller, $method, $id);
         } else {

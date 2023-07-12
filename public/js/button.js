@@ -11,6 +11,6 @@ buttons.forEach((button) => {
     setTimeout(() => {
       done.style.transform = "translate(-110%)";
       pretext.style.opacity = "1";
-    }, 2000);
+    }, 1000);
   });
 });

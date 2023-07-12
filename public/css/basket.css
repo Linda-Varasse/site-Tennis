@@ -1,17 +1,52 @@
+.basket-container {
+  padding: 2em;
+}
+.basket-products {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.basket-order {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
 table {
-  width: 90%;
   border-collapse: collapse;
   text-align: center;
+  width: 65%;
 }
-table td,
-table th,
-table tfoot td {
+table img {
+  width: 150px;
+}
+table td {
   border: 1px solid black;
+}
+.delete {
+  width: 40px;
+}
+.display {
+  display: flex;
+  justify-content: space-around;
+}
+.basket-total {
+  width: 100%;
+}
+.basket-validation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  margin: 1em 0 1em 0;
+}
+.button-validation {
+  font-size: 1rem;
+  width: 200px;
   padding: 0.5em 1em;
-}
-.delete img {
-  width: 50px;
-}
-table thead {
-  background-color: rgba(213, 121, 22, 0.3);
+  color: #fff;
+  background-color: rgb(213, 121, 22);
+  border: 0;
+  cursor: pointer;
+  border-radius: 2em;
 }
