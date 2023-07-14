@@ -31,13 +31,24 @@
   display: flex;
   align-items: center;
 }
+.dflex i {
+  margin-right: 1em;
+}
+form {
+  margin: 0;
+}
 .quantity-product input {
+  width: 50px;
   border: 0;
   border-bottom: 4px solid rgb(213, 121, 22);
   text-align: center;
 }
 .custom-select {
   margin: 1em 0;
+}
+.custom-select label,
+.quantity-product label {
+  margin: 0 2em 0 0;
 }
 .custom-select select {
   border: 0;

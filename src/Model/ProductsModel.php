@@ -42,4 +42,13 @@ class ProductsModel extends DatabaseConnector
         $products = $stmt->fetchAll();
         return $products;
     }
+    public function updateProductQuantity($productId, $newQuantity)
+    {
+        $stmt = $this->getConnection()->prepare('UPDATE products SET quantity = :quantity WHERE id = :id');
+
+        $stmt->execute([
+            'quantity' => $newQuantity,
+            'id' => $productId
+        ]);
+    }
 }
