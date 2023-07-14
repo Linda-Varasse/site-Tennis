@@ -7,7 +7,7 @@
         <article>
             <div class="article-info">
                 <div class="dflex title-opinion">
-                    <h2><?= $product['nom'] ?></h2>
+                    <h2><?= $product['name'] ?></h2>
                     <div class="opinion">
                         <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
                         <i class="fa-regular fa-star fa-2xs" style="color: #000000;"></i>
@@ -17,54 +17,59 @@
                     </div>
                 </div>
                 <p><?= $product['description'] ?></p>
-                <p class="product-price"><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
-                <p id="stock">Stock disponible: <?= $product['quantité'] ?> </p>
+                <p class="product-price"><?= number_format($product['price'], 2, ',', ' ') ?> €</p>
+                <p id="stock">Stock disponible: <?= $product['quantity'] ?> </p>
                 <?php
-                if ($product['quantité'] > 0 && $product['quantité']  <= 3) {
+                if ($product['quantity'] > 0 && $product['quantity']  <= 3) {
                     echo "<p > <i class='fa-solid fa-triangle-exclamation' style='color: #d57916;'></i>Les stocks sont bientôt épuisés !</p>";
-                } elseif ($product['quantité'] == 0) {
+                } elseif ($product['quantity'] == 0) {
                     echo "<p><i class='fa-solid fa-triangle-exclamation' style='color: #ff0000;'></i>Les stocks sont épuisés !</p>";
                 }
                 ?>
                 <?php
-                if ($product['quantité'] > 0) : ?>
-                    <div class="dflex quantity-product">
-                        <label for="quantity">Quantité : </label>
-                        <input type="number" id="quantity" value="1" name="quantity" min="1" max="<?= $product['quantité'] ?>">
-                    </div>
-                <?php endif; ?>
-                <div class="custom-select">
-                    <?php if ($product['categorie'] === "vetement") : ?>
-                        <label for="size">Taille : </label>
-                        <select name="taille" id="size">
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                    <?php elseif ($product['categorie'] === "chaussures-femmes" || $product['categorie'] === "chaussures-hommes") : ?>
-                        <label for="size">Taille : </label>
-                        <select name="taille" id="size">
-                            <option value="37">37</option>
-                            <option value="38">38</option>
-                            <option value="39">39</option>
-                            <option value="40">40</option>
-                            <option value="41">41</option>
-                        </select>
+                if ($product['quantity'] > 0) : ?>
+                    <form action="/addBasket/<?= $product['id'] ?>" method="post">
+                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                        <div class="dflex quantity-product">
+                            <label for="quantity">Quantité : </label>
+                            <input type="number" id="quantity" value="1" name="quantity" min="1" max="<?= $product['quantity'] ?>">
+                        </div>
                     <?php endif; ?>
-                </div>
-                <div class="shipping">
-                    <div class="shipping-modality dflex">
-                        <i class="fa-solid fa-truck" style="color: #d57916;"></i>
-                        <p>Livraison en 5 jours ouvrés</p>
+                    <div class="custom-select">
+                        <?php if ($product['category'] === "vetement") : ?>
+                            <label for="size">Taille : </label>
+                            <select name="size" id="size">
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        <?php elseif ($product['category'] === "chaussures-femmes" || $product['category'] === "chaussures-hommes") : ?>
+                            <label for="size">Taille : </label>
+                            <select name="size" id="size">
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                            </select>
+                        <?php endif; ?>
                     </div>
-                    <div class="shipping-modality-express dflex">
-                        <i class="fa-solid fa-truck-fast" style="color: #d57916;"></i>
-                        <p>Livraison Express en 2 jours ouvrés</p>
+                    <div class="shipping">
+                        <div class="shipping-modality dflex">
+                            <i class="fa-solid fa-truck" style="color: #d57916;"></i>
+                            <p>Livraison en 5 jours ouvrés</p>
+                        </div>
+                        <div class="shipping-modality-express dflex">
+                            <i class="fa-solid fa-truck-fast" style="color: #d57916;"></i>
+                            <p>Livraison Express en 2 jours ouvrés</p>
+                        </div>
                     </div>
-                </div>
-                <a href="" data-product-id="<?= $product['id'] ?>">Ajouter au panier</a>
+                    <?php if ($product['quantity'] > 0) : ?>
+                        <button type="submit">Ajouter au panier</button>
+                    <?php endif; ?>
+                    </form>
             </div>
         </article>
     </section>

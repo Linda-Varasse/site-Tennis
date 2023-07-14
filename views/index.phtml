@@ -16,6 +16,7 @@
     <title>Ace Pro Tennis</title>
 </head>
 
+
 <body>
     <header>
         <div class="header-title">
@@ -35,7 +36,7 @@
                     <a href="/login">Connexion</a>
                 <?php endif; ?>
 
-                <a href="/basket" id="cart-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"><span></span></i></a>
+                <a href="/basket" id="cart-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"><span><?php echo isset($_SESSION['panier']) ? count($_SESSION['panier']) : 0; ?></span></i></a>
             </ul>
         </nav>
     </header>
@@ -88,7 +89,6 @@
     <script src="public/js/FormValidator.js"></script>
     <script src="public/js/button.js"></script>
     <script src="public/js/filterProduct.js"></script>
-    <script src="public/js/cart.js"></script>
 </body>
 
 </html>

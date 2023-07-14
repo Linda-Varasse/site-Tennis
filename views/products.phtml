@@ -33,25 +33,17 @@
     </nav>
     <section id="product-section">
         <?php foreach ($products as $product) : ?>
-            <article class="all-article" data-category="<?= $product['categorie'] ?>">
-                <div class="card-article all product" data-price="<?= $product['prix'] ?>">
+            <article class="all-article" data-category="<?= $product['category'] ?>">
+                <div class="card-article all product" data-price="<?= $product['price'] ?>">
                     <div class="img-article">
                         <img src="<?= $product['image_url'] ?>" alt="<?= $product['description'] ?>">
                     </div>
                     <div class="card-article-bottom">
                         <div class="card-article-price">
-                            <p><?= $product['nom'] ?></p>
-                            <p><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
+                            <p><?= $product['name'] ?></p>
+                            <p><?= number_format($product['price'], 2, ',', ' ') ?> €</p>
                         </div>
-                        <a href="/addBasket/<?= $product['id'] ?>" class=" addtocart addCart" data-product-id="<?= $product['id'] ?>">
-                            <div class=" pretext">
-                                <i class="fas fa-cart-plus"></i> Ajouter au panier
-                            </div>
-                            <div class="pretext done">
-                                <div class="posttext"><i class="fas fa-check"></i> Ajouté !</div>
-                            </div>
-                        </a>
-                        <a class="button-see-more" data-id="<?= $product['id'] ?>" href="/productDescription/<?= $product['id'] ?>">
+                        <a class="button-see-more" data-id="<?= $product['id'] ?>" href="/addBasket/<?= $product['id'] ?>">
                             Voir plus
                         </a>
 

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\AbstractController;
 use App\Model\ContactModel;
+use App\Model\ProductsModel;
 
 class HomeController extends AbstractController
 {

@@ -15,7 +15,7 @@ class ContactModel extends DatabaseConnector
     public function insert(array $form): void
     {
         $q = $this->getConnection()->prepare(
-            'INSERT INTO post( pseudo, email, objet, message, created_at)
+            'INSERT INTO post( pseudo, email, object, message, created_at)
             VALUES (:pseudo, :mail, :objet, :message, NOW())'
         );
         $q->execute(

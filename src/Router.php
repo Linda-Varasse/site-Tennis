@@ -37,12 +37,12 @@ class Router
             list($controller, $method) = explode('@', $route);
             self::executeControllerMethod($controller, $method, $id);
         }
-        // if (preg_match('/\/addBasket\/(\d+)/', $uri, $matches)) {
-        //     $id = $matches[1];
-        //     $route = str_replace(':id', $id, self::ROUTES['/addBasket/:id']);
-        //     list($controller, $method) = explode('@', $route);
-        //     self::executeControllerMethod($controller, $method, $id);
-        // }
+        if (preg_match('/\/addBasket\/(\d+)/', $uri, $matches)) {
+            $id = $matches[1];
+            $route = str_replace(':id', $id, self::ROUTES['/addBasket/:id']);
+            list($controller, $method) = explode('@', $route);
+            self::executeControllerMethod($controller, $method, $id);
+        }
         if (preg_match('/\/delete\/(\d+)/', $uri, $matches)) {
             $id = $matches[1];
             $route = str_replace(':id', $id, self::ROUTES['/delete/:id']);

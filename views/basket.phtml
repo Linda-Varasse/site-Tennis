@@ -8,6 +8,7 @@
                 <thead>
                     <td>Image du produit</td>
                     <td>Nom</td>
+                    <td>Taille</td>
                     <td>Prix à l'unité</td>
                     <td>Quantité</td>
                     <td>Prix Total</td>
@@ -17,18 +18,19 @@
                 <?php
                 $total = 0;
                 foreach ($products as $product) :
-                    $total = $total + $product['prix'] * $_SESSION['panier'][$product['id']];
+                    $total = $total + $product['price'] * $_SESSION['panier'][$product['id']]['quantity'];
                 ?>
                     <tr>
                         <td><img src="<?= $product['image_url'] ?>" alt="<?= $product['description'] ?>"></td>
                         <td>
-                            <p><?= $product['nom'] ?></p>
+                            <p><?= $product['name'] ?></p>
                         </td>
+                        <td><?= $_SESSION['panier'][$product['id']]['size'] ?></td>
                         <td>
-                            <p><?= number_format($product['prix'], 2, ',', ' ') ?> €</p>
+                            <p><?= number_format($product['price'], 2, ',', ' ') ?> €</p>
                         </td>
-                        <td><?= $_SESSION['panier'][$product['id']] ?></td>
-                        <td><?= number_format($product['prix'] * $_SESSION['panier'][$product['id']], 2, ',', ' ') ?> €</td>
+                        <td><?= $_SESSION['panier'][$product['id']]['quantity'] ?></td>
+                        <td><?= number_format($product['price'] * $_SESSION['panier'][$product['id']]['quantity'], 2, ',', ' ') ?> €</td>
                         <td>
                             <a href="/delete/<?= $product['id'] ?>"><img class="delete" src="../img/delete.png" alt=""></a>
                         </td>
